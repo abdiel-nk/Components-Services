@@ -1,0 +1,83 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggleMenu()">
+      <img  src="./assets/menu.svg" alt="menu">
+    </button>
+    <a href="">
+      <img src="./assets/drupal.svg" alt="logo">
+    </a>
+    <a href="">
+      <img src="./assets/cart.svg" alt="logo">
+    </a>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggleMenu()" type="button" name="button">Close</button>
+    <ul>
+      <li><a href="">All</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="show-desktop">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="./assets/drupal.svg" alt="logo">
+      </a>
+      <ul>
+        <li><a href="">All</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">faster.com</div>
+      <div >
+        <a  class="logo" href="">
+          <img src="./assets/cart.svg" alt="logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="show-mobile">
+  <div>
+    <button>
+      <img src="./assets/mouse.jpg" alt="menu">
+    </button>
+    <a href="">
+      <img src="./assets/drupal.svg" alt="logo">
+    </a>
+    <a href="">
+      <img src="./assets/default.jpg" alt="logo">
+    </a>
+  </div>
+</div>
+
+
+<div class="show-desktop">
+  <div >
+    <nav>
+      <a class="logo"href="#">
+        <img src="./assets/drupal.svg" alt="logo">
+      </a>
+      <ul>
+        <li><a href="#">All</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Products</a></li>
+      </ul>
+
+    </nav>
+    <div class="info">
+      <div class="account"></div>
+      <div class="">
+        <a href="#">
+          <img src="./assets/cart.svg" alt="logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</div> -->
