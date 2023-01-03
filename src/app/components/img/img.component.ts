@@ -6,7 +6,7 @@ import { OnInit, Component, Input, Output, EventEmitter, OnChanges, AfterViewIni
   styleUrls: ['./img.component.scss']
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
-img: string = '';
+img = '';
 @Input('img')
 set changeImg(newImg: string){
   this.img = newImg;
@@ -15,7 +15,8 @@ set changeImg(newImg: string){
 }
 
 
-@Input() alt: string= '';
+//@Input() alt: string= ''; redundant
+@Input() alt = '';
 @Output() loaded = new EventEmitter<string>();
 imageDefault = './assets/default.jpg';
 // counter = 0;

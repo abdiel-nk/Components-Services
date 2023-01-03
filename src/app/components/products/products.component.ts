@@ -29,7 +29,7 @@ ngOnInit(): void{
 
 onAddToShoppingCart(product:Product){
   this.storeService.addProduct(product);
-  this.total =  this.storeService.getTotal();;
+  this.total =  this.storeService.getTotal();
 }
 
 }

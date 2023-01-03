@@ -10,7 +10,7 @@ private myShoppingCart : Product[] = [];
 private myCart = new BehaviorSubject<Product[]>([]);
 
 myCart$ = this.myCart.asObservable();
-  constructor() { }
+  //constructor() { }
 
   //Add product
   addProduct(product: Product){
