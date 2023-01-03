@@ -8,13 +8,21 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonalPipe } from './pipes/personal.pipe';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { TransformPipe } from './pipes/transform.pipe';
+import { FeaturesDirective } from './directives/features.directive';
 @NgModule({
   declarations: [
     AppComponent,
     ImgComponent,
     ProductComponent,
     ProductsComponent,
-    HeaderComponent
+    HeaderComponent,
+    PersonalPipe,
+    TimeAgoPipe,
+    TransformPipe,
+    FeaturesDirective
   ],
   imports: [
     BrowserModule,

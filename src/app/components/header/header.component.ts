@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {StoreService} from '../../services/store.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit{
 
 activeMenu = false;
-constructor(){
+counter = 0 ;
+constructor(
+  private storeService : StoreService
+){
 }
 ngOnInit():void{
+  this.storeService.myCart$.subscribe(product =>{
+    this.counter = product.length;
+  })
 }
 
 toggleMenu(){

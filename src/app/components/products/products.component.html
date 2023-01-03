@@ -10,10 +10,13 @@
 <p>
   Full date: {{date | date: 'full'}}
 </p>
+<p>
+ Time ago: {{date | timeAgo}}
+</p>
 <p>{{ 'hola' | uppercase}}</p>
+<p>{{'Saludos' | transform}}</p>
 <div class="products--grid">
   <app-product [product]="product" *ngFor="let product of products"
   (addedProduct)="onAddToShoppingCart($event)"
   ></app-product>
 </div>
- 
