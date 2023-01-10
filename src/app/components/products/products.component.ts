@@ -8,18 +8,18 @@ import {ProductsService} from  '../../services/products.service'
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit{
-myShoppingCart : Product[] = [];
-total = 0;
-products: Product [] = [];
-today = new Date(2023, 1, 3);
-date = new Date();
+  myShoppingCart : Product[] = [];
+  total = 0;
+  products: Product [] = [];
+  showProductDetail= false;
+  today = new Date;
 
 constructor(
   private storeService : StoreService,
   private productService: ProductsService
-){
-  this.myShoppingCart = this.storeService.getShoppingCart();
-}
+  ){
+    this.myShoppingCart = this.storeService.getShoppingCart();
+  }
 //Aquí va métodos asincronos
 ngOnInit(): void{
   this.productService.getAllProducts().subscribe(data =>{
@@ -30,6 +30,9 @@ ngOnInit(): void{
 onAddToShoppingCart(product:Product){
   this.storeService.addProduct(product);
   this.total =  this.storeService.getTotal();
-}
+  }
+  toggleProductDetail(){
+    this.showProductDetail = !this.showProductDetail ;
+  }
 
 }

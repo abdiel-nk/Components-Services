@@ -1,22 +1,17 @@
 <p>
-  Cantidad de productos {{myShoppingCart.length}}
-</p>
-<p>
   El precio total es: $ {{total}}
 </p>
 <p>
   Today: {{today | date: 'short'}}
 </p>
-<p>
-  Full date: {{date | date: 'full'}}
-</p>
-<p>
- Time ago: {{date | timeAgo}}
-</p>
-<p>{{ 'hola' | uppercase}}</p>
-<p>{{'Saludos' | transform}}</p>
+<button (click)="toggleProductDetail()">Click</button>
 <div class="products--grid">
   <app-product [product]="product" *ngFor="let product of products"
   (addedProduct)="onAddToShoppingCart($event)"
   ></app-product>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+  <div class="">
+    <button (click)="toggleProductDetail()">Close</button>
+  </div>
 </div>

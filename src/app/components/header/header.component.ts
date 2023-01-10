@@ -22,5 +22,4 @@ ngOnInit():void{
 toggleMenu(){
   this.activeMenu = !this.activeMenu;
 }
-
 }
