@@ -13,6 +13,17 @@ export class ProductsComponent implements OnInit{
   products: Product [] = [];
   showProductDetail= false;
   today = new Date;
+  productChosen: Product = {
+    id:'',
+    title: '',
+    price: 0,
+    images: [],
+    category:{
+      id: '',
+      name:'',
+    },
+    description: ''
+  }
 
 constructor(
   private storeService : StoreService,
@@ -27,12 +38,21 @@ ngOnInit(): void{
   });
 }
 
-onAddToShoppingCart(product:Product){
+  onAddToShoppingCart(product:Product){
   this.storeService.addProduct(product);
   this.total =  this.storeService.getTotal();
   }
+
   toggleProductDetail(){
     this.showProductDetail = !this.showProductDetail ;
+  }
+
+  onShowDetail(id: string){
+    this.productService.getProduct(id).subscribe(data =>{
+      console.log('product', data);
+      this.toggleProductDetail();
+      this.productChosen = data;
+    })
   }
 
 }

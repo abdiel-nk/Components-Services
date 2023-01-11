@@ -12,6 +12,7 @@ import { PersonalPipe } from './pipes/personal.pipe';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { TransformPipe } from './pipes/transform.pipe';
 import { FeaturesDirective } from './directives/features.directive';
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +24,13 @@ import { FeaturesDirective } from './directives/features.directive';
     TimeAgoPipe,
     TransformPipe,
     FeaturesDirective
-  ],
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,9 +14,39 @@
   flex-direction: column;
   justify-content: flex-start;
   transition: all ease-out .5s;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transform: translateX(100%);
   &.active{
     transform: translateX(0);
+  }
+  button{
+    margin: 0;
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 150ms;
+    //top: calc(10% - 10px);
+    //display:inline-block;
+    position:absolute;
+    display: block;
+    z-index: 100;
+      &:hover,
+      &:focus {
+      transform: rotateZ(90deg);
+      background: hsl(216, 100, 40);
+    }
+
+
+  }
+  img{
+    height: 50vh;
+    width: 100%;
+    justify-content: center;
+    z-index: 50;
   }
 
 }
