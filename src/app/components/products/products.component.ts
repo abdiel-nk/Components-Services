@@ -54,5 +54,15 @@ ngOnInit(): void{
       this.productChosen = data;
     })
   }
+  createNewProduct(){
+    const product: Product = {
+      title: 'Iphone 12',
+      description: '',
+      images: [''],
+      price: 1000,
+
+    }
+    this.productService.create()
+  }
 
 }
