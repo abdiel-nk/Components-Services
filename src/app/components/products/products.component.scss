@@ -20,7 +20,7 @@
   &.active{
     transform: translateX(0);
   }
-  button{
+  #close{
     margin: 0;
     border: 0;
     background: white;
@@ -39,8 +39,6 @@
       transform: rotateZ(90deg);
       background: hsl(216, 100, 40);
     }
-
-
   }
   img{
     height: 50vh;
@@ -48,6 +46,35 @@
     justify-content: center;
     z-index: 50;
   }
+  p{
+    padding: 5px 25px 5px 25px;
+  }
+  h1{
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "fantasy", sans-serif;
+    padding: 5px 25px 5px 25px;
+  }
+  .pri{
+    font-style: italic;
+    font-weight: bold;
+
+  }
+  .description{
+    font-family: "fantasy", sans-serif;
+
+  }
+  #edit{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    color:white;
+    padding: 10px 15px 10px 15px;
+    margin-left: 5%;
+  }
+
 
 }
 
@@ -66,5 +93,8 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 15px;
+  }
+  .product-detail{
+    left: 70%;
   }
 }

@@ -6,7 +6,7 @@ import { Directive, ElementRef , HostListener } from '@angular/core';
 export class FeaturesDirective {
 
   @HostListener('mouseenter') onMouseEnter(){
-    this.element.nativeElement.style.backgroundColor='rgb(240, 165, 0)';
+    this.element.nativeElement.style.backgroundColor='';
     this.element.nativeElement.style.color='rgb(51, 71, 86)';
     }
   @HostListener('mouseleave') onMouseLeave(){

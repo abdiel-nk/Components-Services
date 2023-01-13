@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../models/product.model';
+import {Product, CreateProductDTO, UpdateProductDTO} from '../../models/product.model';
 import {StoreService} from '../../services/store.service';
 import {ProductsService} from  '../../services/products.service'
 @Component({
@@ -54,15 +54,33 @@ ngOnInit(): void{
       this.productChosen = data;
     })
   }
+
   createNewProduct(){
-    const product: Product = {
-      title: 'Iphone 12',
-      description: '',
-      images: [''],
+    const product: CreateProductDTO = {
+      title: 'Iphone 14',
+      description: 'Celular de última gama',
+      images: ['https://miportal.entel.pe/static/112820220859344/images/iphone_14_pro_silver_frontal1_276x549.jpg,https://coolboxpe.vtexassets.com/arquivos/ids/234639-1200-auto?v=638022336195830000&width=1200&height=auto&aspect=true'],
       price: 1000,
+      categoryId:2,
 
     }
-    this.productService.create()
+    this.productService.create(product).
+    subscribe(data =>{
+      console.log('created',data);
+      this.products.unshift(data);
+    });
   }
+  updateProduct(){
+    const changes: UpdateProductDTO = {
+      description: "Celular de alta gama, 6ta generación",
+    }
+    const id= this.productChosen.id;
+    this.productService.update(id, changes).subscribe(
+      data =>{
+        const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
+        this.products[productIndex]= data;
+      });
+  }
+
 
 }
