@@ -72,15 +72,23 @@ ngOnInit(): void{
   }
   updateProduct(){
     const changes: UpdateProductDTO = {
-      description: "Celular de alta gama, 6ta generación",
+      description: "Celular de alta gama, 5ta generación",
     }
     const id= this.productChosen.id;
     this.productService.update(id, changes).subscribe(
       data =>{
         const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
         this.products[productIndex]= data;
+        this.productChosen = data;
       });
-  }
+    }
+    deleteProduct(){
+      const id= this.productChosen.id;
+      this.productService.delete(id).subscribe(() =>{
+        const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
+        this.products.splice(productIndex,1);
+        this.showProductDetail = false;
 
-
+    });
+}
 }
