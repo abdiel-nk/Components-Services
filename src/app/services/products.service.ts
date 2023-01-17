@@ -7,7 +7,8 @@ import {Product, CreateProductDTO, UpdateProductDTO}from './../models/product.mo
 })
 export class ProductsService {
 
-  private apiUrl = 'https://young-sands-07814.herokuppapp.com/api/products';
+  private apiUrl = '/api/products';
+
 
   constructor(
     private http: HttpClient
