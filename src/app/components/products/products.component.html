@@ -10,10 +10,11 @@
   (addedProduct)="onAddToShoppingCart($event)"
   (showProduct)="onShowDetail($event)"
   ></app-product>
+  <button (click)="loadData()" type="button" name="button">Cargar mas</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
   <div *ngIf="productChosen" class="">
-    <button id="close" (click)="toggleProductDetail()">X</button>
+    <button id="close" (click)="toggleProductDetail()">X</button> 
     <swiper>
       [slidesPerView]="2"
       [navigation]="true"

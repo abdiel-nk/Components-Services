@@ -23,7 +23,9 @@ export class ProductsComponent implements OnInit{
       name:'',
     },
     description: ''
-  }
+  };
+  limit = 10;
+  offset =0;
 
 constructor(
   private storeService : StoreService,
@@ -33,9 +35,11 @@ constructor(
   }
 //Aquí va métodos asincronos
 ngOnInit(): void{
-  this.productService.getAllProducts().subscribe(data =>{
+  this.productService.getProductsByPage(10,0).subscribe(data =>{
    this.products= data;
+   this.offset += this.limit;
   });
+
 }
 
   onAddToShoppingCart(product:Product){
@@ -82,7 +86,7 @@ ngOnInit(): void{
         this.productChosen = data;
       });
     }
-    deleteProduct(){
+  deleteProduct(){
       const id= this.productChosen.id;
       this.productService.delete(id).subscribe(() =>{
         const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
@@ -90,5 +94,12 @@ ngOnInit(): void{
         this.showProductDetail = false;
 
     });
-}
+  }
+  loadData(){
+    this.productService.getAllProducts(this.limit, this.offset).subscribe(data =>{
+     this.products= this.products.concat(data);
+     this.offset += this.limit;
+    });
+  }
+
 }
