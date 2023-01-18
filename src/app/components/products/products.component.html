@@ -5,6 +5,8 @@
   Today: {{today | date: 'short'}}
 </p>
 <button (click)="createNewProduct()">create</button>
+<button (click)="onShowDetail('12344')">Detail not found</button>
+
 <div class="products--grid">
   <app-product [product]="product" *ngFor="let product of products"
   (addedProduct)="onAddToShoppingCart($event)"
@@ -13,8 +15,9 @@
   <button (click)="loadData()" type="button" name="button">Cargar mas</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
+  {{statusDetail}}
   <div *ngIf="productChosen" class="">
-    <button id="close" (click)="toggleProductDetail()">X</button> 
+    <button id="close" (click)="toggleProductDetail()">X</button>
     <swiper>
       [slidesPerView]="2"
       [navigation]="true"
