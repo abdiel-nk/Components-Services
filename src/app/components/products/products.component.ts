@@ -79,7 +79,7 @@ ngOnInit(): void{
     .subscribe(data =>{
       console.log(data);
     });
-    
+
     this.productService.fetchReadAndUpdate(id, {title: 'change'})
       .subscribe(response =>{
         const read  = response [0];

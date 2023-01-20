@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-//import {Product} from './models/product.model';
-import {environment} from './../environments/environment'
+import {environment} from './../environments/environment';
+import {AuthService } from './services/auth.service';
+import {UsersService } from './services/users.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,14 +12,33 @@ export class AppComponent {
   imgParent = '';
   showImg = true;
 
+  constructor(
+  private authService: AuthService,
+  private usersService: UsersService,
+  ){
+
+  }
+
   onLoaded(){
     console.log('log padre');
   }
   toggleImg(){
     this.showImg = !this.showImg;
   }
-  constructor() {
-  console.log(environment.production); // Logs false for default environment
-}
-title = 'app works!';
+  createUser(){
+    this.usersService.create({
+      name: 'Alfred',
+      email: 'alfred@gmail.com',
+      password : 'alfred'
+    }).subscribe(rta=>{
+      console.log(rta);
+
+    });
+  }
+
+  login(){
+    this.authService.login('alfred@gmail.com','alfred').subscribe(rta=>{
+      console.log(rta.access_token);
+    });
+  }
 }
