@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from './../../environments/environment';
 import {Auth} from './../models/auth.model';
-import { HttpClient}  from '@angular/common/http';
+import {User} from './../models/user.model';
+import { HttpClient, HttpHeaders}  from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,12 @@ export class AuthService {
   login(email: string, password: string){
     return this.http.post<Auth>(`${this.apiUrl}/login`, {email, password});
   }
-  profile(){
-    return this.http.get(`${this.apiUrl}/profile`);
+  profile(token: string){
+    let headers =  new HttpHeaders();
+    headers = headers.set('Authorization', `Bearer ${token}`);
+    headers = headers.set('Content-type', 'application/json');
+    return this.http.get<User>(`${this.apiUrl}/profile`,{
+      headers
+    });
   }
 }
