@@ -10,7 +10,7 @@ img = '';
 @Input('img')
 set changeImg(newImg: string){
   this.img = newImg;
-  console.log('change just img =>' ,this.img);
+  //console.log('change just img =>' ,this.img);
 
 }
 
@@ -25,19 +25,19 @@ imageDefault = './assets/default.jpg';
 constructor (){
   //bofere render
   //No Async
-  console.log("constructor",'imgValue =>', this.img);
+  // console.log("constructor",'imgValue =>', this.img);
 }
 ngOnChanges(changes: SimpleChanges){
 //before -during render
 //changes inputs
-console.log("ngOnchanges",'imgValue =>', this.img);
-console.log('changes',changes);
+// console.log("ngOnchanges",'imgValue =>', this.img);
+// console.log('changes',changes);
 }
 //contador
 ngOnInit(): void {
   //before render
   //Async - fetch - API - once time
-  console.log('ngOnInit','imgValue =>', this.img);
+  // console.log('ngOnInit','imgValue =>', this.img);
   // this.counterFn= window.setInterval(()=>{
   //   this.counter += 1;
   //   console.log('run counter');
@@ -47,12 +47,12 @@ ngOnInit(): void {
 ngAfterViewInit() {
   //After render
   //Handler children
-  console.log("ngAfterview",'imgValue =>', this.img);
+  // console.log("ngAfterview",'imgValue =>', this.img);
 }
 //eliminar proceso o evento
 ngOnDestroy() {
   // delete -- once time
-  console.log("ngOnDestroy");
+  // console.log("ngOnDestroy");
   // window.clearInterval(this.counterFn);
 }
 
@@ -62,7 +62,7 @@ imgError(){
  this.img = this.imageDefault;
 }
 ImgLoad(){
-  console.log('log hijo');
+  //console.log('log hijo');
   this.loaded.emit(this.img);
 
 }

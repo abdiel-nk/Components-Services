@@ -15,9 +15,7 @@ export class AppComponent {
 
   constructor(
   private usersService: UsersService
-  ){
-
-  }
+  ){  }
 
   onLoaded(){
     console.log('log padre');
@@ -27,16 +25,12 @@ export class AppComponent {
   }
   createUser(){
     this.usersService.create({
-      name: 'Alfred',
-      email: 'alfred@gmail.com',
-      password : 'alfred'
+      name: 'Alfredo123',
+      email: 'alfred123@gmail.com',
+      password : 'alfred123'
     }).subscribe(rta=>{
       console.log(rta);
 
     });
   }
-
-
-
-
 }
