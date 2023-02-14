@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import {Product, CreateProductDTO, UpdateProductDTO} from '../../models/product.model';
 import {StoreService} from '../../services/store.service';
 import {ProductsService} from  '../../services/products.service';
@@ -10,10 +10,12 @@ import {zip} from 'rxjs';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit{
+export class ProductsComponent {
   myShoppingCart : Product[] = [];
   total = 0;
-  products: Product [] = [];
+  @Input() products: Product [] = [];
+  @Output() onLoadMore:
+  EventEmitter<string> = new EventEmitter<string>();
   showProductDetail= false;
   today = new Date;
   productChosen: Product = {
@@ -27,8 +29,7 @@ export class ProductsComponent implements OnInit{
     },
     description: '',
   };
-  limit = 10;
-  offset =0;
+
   statusDetail : 'loading' | 'success'|'error'|'init'='init';
 
 constructor(
@@ -37,14 +38,7 @@ constructor(
   ){
     this.myShoppingCart = this.storeService.getShoppingCart();
   }
-//Aquí va métodos asincronos
-ngOnInit(): void{
-  this.productService.getProductsByPage(10,0).subscribe(data =>{
-   this.products= data;
-   this.offset += this.limit;
-  });
 
-}
 
   onAddToShoppingCart(product:Product){
   this.storeService.addProduct(product);
@@ -124,11 +118,14 @@ ngOnInit(): void{
 
     });
   }
-  loadData(){
-    this.productService.getAllProducts(this.limit, this.offset).subscribe(data =>{
-     this.products= this.products.concat(data);
-     this.offset += this.limit;
-    });
-  }
+  loadMore() {
+    this.onLoadMore.emit();
+}
+  // loadData(){
+  //   this.productService.getAllProducts(this.limit, this.offset).subscribe(data =>{
+  //    this.products= this.products.concat(data);
+  //    this.offset += this.limit;
+  //   });
+  // }
 
 }

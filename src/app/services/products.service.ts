@@ -25,10 +25,17 @@ export class ProductsService {
 
   getAllProducts(limit?: number, offset?: number){
     let params = new HttpParams();
-    if (limit && offset){
-      params= params.set('limit', limit);
-      params= params.set('offset', limit);
-    }
+    //First version
+    // if (limit && offset){
+    //   params= params.set('limit', limit);
+    //   params= params.set('offset', limit);
+    // }
+    //second version
+    if (limit != undefined && offset != undefined) {
+    params = params.set('limit', limit);
+    params = params.set('offset', offset);
+}
+
     return this.http.get<Product[]>(this.apiUrl, {
       params , context: checkTime()
     }).pipe(

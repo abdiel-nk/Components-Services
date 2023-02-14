@@ -12,7 +12,7 @@
   (addedProduct)="onAddToShoppingCart($event)"
   (showProduct)="onShowDetail($event)"
   ></app-product>
-  <button (click)="loadData()" type="button" name="button">Cargar mas</button>
+  <button (click)="loadMore()" type="button" name="button">Cargar mas</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
   {{statusDetail}}
