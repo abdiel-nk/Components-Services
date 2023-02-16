@@ -14,6 +14,11 @@ export class ProductsComponent {
   myShoppingCart : Product[] = [];
   total = 0;
   @Input() products: Product [] = [];
+  @Input() set productId(id: string | null){
+     if(id){
+       this.onShowDetail(id);
+     }
+  };
   @Output() onLoadMore:
   EventEmitter<string> = new EventEmitter<string>();
   showProductDetail= false;
@@ -51,7 +56,9 @@ constructor(
 
   onShowDetail(id: string){
     this.statusDetail = 'loading';
-    this.toggleProductDetail();
+    if(!this.showProductDetail){
+      this.showProductDetail = true;
+    }
     this.productService.getProduct(id).subscribe(data =>{
       this.productChosen = data;
       this.statusDetail ='success';
