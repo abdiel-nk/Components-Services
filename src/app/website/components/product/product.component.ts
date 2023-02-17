@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {Product} from '../../models/product.model'
+import {Product} from '../../../models/product.model'
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -17,7 +17,7 @@ export class ProductComponent {
     name:'',
   },
   description: ''
-};
+}; 
 
 @Output() addedProduct = new EventEmitter<Product>();
 @Output() showProduct = new EventEmitter<string>();

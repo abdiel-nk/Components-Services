@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../models/product.model';
+import {Product} from '../../../models/product.model';
 import {switchMap} from 'rxjs/operators';
-import{ProductsService} from './../../services/products.service';
+import{ProductsService} from '../../../services/products.service';
 //import {Location} from '@angular/common';
 @Component({
   selector: 'app-product-detail',
