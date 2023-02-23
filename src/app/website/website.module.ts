@@ -12,6 +12,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
+import { QuicklinkModule} from 'ngx-quicklink';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -22,13 +23,14 @@ import { HeaderComponent } from './components/header/header.component';
     RecoveryComponent,
     ProfileComponent,
     ProductDetailComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
     SwiperModule,
-    SharedModule
+    SharedModule,
+    QuicklinkModule
   ]
 })
 export class WebsiteModule { }

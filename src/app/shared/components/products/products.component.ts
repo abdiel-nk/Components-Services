@@ -5,6 +5,7 @@ import {ProductsService} from  '../../../services/products.service';
 import Swal from 'sweetalert2';
 import {switchMap} from 'rxjs/operators';
 import {zip} from 'rxjs';
+import {UsersService} from  '../../../services/users.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -39,7 +40,8 @@ export class ProductsComponent {
 
 constructor(
   private storeService : StoreService,
-  private productService: ProductsService
+  private productService: ProductsService,
+  private usersService :UsersService
   ){
     this.myShoppingCart = this.storeService.getShoppingCart();
   }
@@ -102,6 +104,16 @@ constructor(
     subscribe(data =>{
       console.log('created',data);
       this.products.unshift(data);
+    });
+  }
+  createUser(){
+    this.usersService.create({
+      name: 'Alfredo1234',
+      email: 'alfred1234@gmail.com',
+      password : 'alfred1234',
+      role: 'customer'
+    }).subscribe(rta=>{
+      console.log(rta);
     });
   }
   updateProduct(){

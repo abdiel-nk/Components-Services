@@ -32,7 +32,7 @@ toggleMenu(){
   this.activeMenu = !this.activeMenu;
 }
 login(){
-  this.authService.loginAndGet('alfred@gmail.com','alfred').subscribe(user =>{
+  this.authService.loginAndGet('alfred1234@gmail.com','alfred1234').subscribe(user =>{
     this.profile= user;
   });
 }

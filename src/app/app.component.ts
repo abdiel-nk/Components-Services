@@ -30,7 +30,8 @@ export class AppComponent {
     this.usersService.create({
       name: 'Alfredo123',
       email: 'alfred123@gmail.com',
-      password : 'alfred123'
+      password : 'alfred123',
+      role: 'customer'
     }).subscribe(rta=>{
       console.log(rta);
     });

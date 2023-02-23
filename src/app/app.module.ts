@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { QuicklinkModule} from 'ngx-quicklink';
 
 import {TimeInterceptor} from  './interceptors/time.interceptor';
 import {TokenInterceptor} from  './interceptors/token.interceptor';
@@ -18,7 +19,9 @@ import {TokenInterceptor} from  './interceptors/token.interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QuicklinkModule
+
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true},
