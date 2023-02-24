@@ -28,7 +28,11 @@ ngOnInit():void{
   this.storeService.myCart$.subscribe(product =>{
     this.counter = product.length;
   });
-  
+  this.authService.user$
+  .subscribe(data=>{
+    this.profile = data;
+  })
+
   this.getAllCategories();
 }
 
@@ -36,8 +40,9 @@ toggleMenu(){
   this.activeMenu = !this.activeMenu;
 }
 login(){
-  this.authService.loginAndGet('alfred1234@gmail.com','alfred1234').subscribe(user =>{
-    this.profile= user;
+  this.authService.loginAndGet('alfred12345@gmail.com','alfred12345')
+  .subscribe(() =>{
+    this.router.navigate(['/profile']);
   });
 }
 getAllCategories(){
