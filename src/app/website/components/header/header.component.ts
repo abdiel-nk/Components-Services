@@ -40,7 +40,9 @@ toggleMenu(){
   this.activeMenu = !this.activeMenu;
 }
 login(){
-  this.authService.loginAndGet('alfred12345@gmail.com','alfred12345')
+ this.authService.loginAndGet('alfred12345@gmail.com','alfred12345')
+//  this.authService.loginAndGet('admin@mail.com','admin123')
+
   .subscribe(() =>{
     this.router.navigate(['/profile']);
   });
